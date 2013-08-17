@@ -1,3 +1,5 @@
+lekker=lekkr, lekkurj, lekka
+ding=dingj,dingetje
 draaien=fixe,fixxoren,zetten
 zeg=seg
 kanker=kk,kenker,kenkr,kankr
