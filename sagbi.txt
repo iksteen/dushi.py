@@ -1,3 +1,4 @@
+draaien=fixe,fixxoren,zetten
 zeg=seg
 kanker=kk,kenker,kenkr,kankr
 beetje=beetjun,beetjuh
