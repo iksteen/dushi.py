@@ -7,17 +7,22 @@ __version__ = "17 aug 2013"
 from random import randrange
 import re
 import sys
+import os
+
+# whatever
+DICT = '%s%s%s' % ('/'.join(os.path.abspath(__file__).split('/')[:-1]),'/','sagbi.txt')
 
 if len(sys.argv) <= 1:
     print 'gast, input?\n'
     sys.exit()
 
 class Whollah():
+    global DICT
     def __init__(self):
         self.bezem = {}
 
         def parse_dict():
-            f = open('sagbi.txt')
+            f = open(DICT)
             a = f.readlines()
             f.close()
             for l in a:
