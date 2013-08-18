@@ -1,3 +1,5 @@
+maken=zetten
+feestje=fisa
 hoe gaat het?,hoe gaatie?=zaize?
 film,bioscoop=kino
 wachten=w88
