@@ -1,4 +1,6 @@
-lekker=lekkr, lekkurj, lekka
+geen=n0,n0hh
+probleem=probelm,rwina
+lekker=lekkr,lekkurj,lekka
 ding=dingj,dingetje
 draaien=fixe,fixxoren,zetten
 zeg=seg
