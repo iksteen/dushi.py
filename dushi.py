@@ -86,7 +86,7 @@ if __name__ == "__main__":
             new = sletje[randrange(0, len(sletje))]
 
             # ff die kommas en punten terughalen als ze er waren :@@@@@
-            new = [new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new][0]
+            new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
 
             # heuelemaal mooi
             out.append(new)
