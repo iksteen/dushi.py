@@ -1,3 +1,5 @@
+wachten=w88
+wacht=w8
 geen=n0,n0hh
 probleem=probelm,rwina
 lekker=lekkr,lekkurj,lekka
