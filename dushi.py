@@ -3,7 +3,7 @@ __author__ = "dsc"
 __copyright__ = "MIT"
 __credits__ = ["Wazakindjes"]
 __version__ = "18 aug 2013"
-from random import randrange,choice,seed
+from random import randrange,choice
 import argparse
 import re
 import sys
@@ -13,6 +13,7 @@ FILE_DICT = 'dushi.db'
 PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
 
 DUSHI_GEHALTE = 6  # HOE LAGER, HOE MEER DUSHI. 3 minimaal.
+SMILEY_KANKER = 20
 
 KKSMILEYS = [';44', ';$', ':$', ':$:$$$::$', ':P', ':ppp', 'X-D', ';P!!', ';\'-)!', '\(^_._^)/!', ';$$', '=S??', ';-O']
 
@@ -20,7 +21,6 @@ class Whollah():
     global PATH_DICT
 
     def __init__(self):
-        seed()
         self.bezem = {}
 
         def doe_ding():
@@ -43,28 +43,32 @@ class Whollah():
                     return v # aw ye
         return None
 
-    def bingo(self):
-        global DUSHI_GEHALTE
-        if randrange(0, DUSHI_GEHALTE) == 3:
-            return True
+    def bingo(self, a):
+        global DUSHI_GEHALTE, SMILEY_KANKER
+        if a == 0:
+            if randrange(0, DUSHI_GEHALTE) == 3:
+                return True
+        elif a == 1:
+            if randrange(0, SMILEY_KANKER) % 2 == 0:
+                return True
         return False # :(((((((((
 
     def haxor(self, a):
-        if self.bingo():
+        if self.bingo(0):
             a = a.replace('e', '3')
-        if self.bingo():
+        if self.bingo(0):
             a = a.replace('a', '4')
-        if self.bingo():
+        if self.bingo(0):
             a = a.replace('o', '0')
-        if self.bingo():
+        if self.bingo(0):
             a = a.replace('i', '1')
 
         # ZONNE GROTE KNAL
-        return ''.join([''.join([x.upper() if self.bingo() else x]) for x in list(a)])
+        return ''.join([''.join([x.upper() if self.bingo(0) else x]) for x in list(a)])
 
     def paasmijsmileys(self, a):
         global KKSMILEYS
-        if self.bingo():
+        if self.bingo(1):
             return '%s %s' % (a, choice(KKSMILEYS))
 
         return a
