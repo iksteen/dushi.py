@@ -1,3 +1,4 @@
+zweer=wholla
 deze=dese
 terug=truk
 maken=zetten

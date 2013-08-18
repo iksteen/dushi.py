@@ -30,27 +30,21 @@ class Whollah():
 
         parse_dict()
 
-    # ewa
-    def sagbi(self, a):
+    def sagbi(self, a): #ewa
         if not a:
             return None
 
         for k, v in self.bezem.items():
             for i in k.split(','):
                 if i == a:
-                    # bam, gevonden die shit
-                    return v
-            # skeere input
+                    return v # aw ye
         return None
 
     def haxor(self, a):
         def bingo():
-            # :OOOOOO
             if randrange(0, 6) == 3:
-                # BAM
                 return True
-            # :(((((((((
-            return False
+            return False # :(((((((((
 
         if bingo():
             a = a.replace('e', '3')
@@ -61,7 +55,7 @@ class Whollah():
         if bingo():
             a = a.replace('i', '1')
 
-        # BAM, ZONNE GROTE KNAL
+        # ZONNE GROTE KNAL
         return ''.join([''.join([x.upper() if bingo() else x]) for x in list(a)])
 
 
@@ -84,6 +78,7 @@ if __name__ == "__main__":
 		print '%s up2date, bam' % FILE_DICT
 
 	elif args.halp:
+		# waz met jou
 		print 'https://github.com/nattewasbeer/dushi.py/blob/master/README.md'
 
 	elif zemmel:
@@ -108,10 +103,10 @@ if __name__ == "__main__":
 		    # skeer
 		    out.append(w)
 
-	    # BAM KLAAR OUTPUT
+	    # KLAAR OUTPUT
 	    deze = ' '.join(out)
 
-	    # misscjein nog ff hax0rfyen =]]]
+	    # deze = skeere.haxor(deze), jwt
 	    deze = skeere.haxor(deze)
 
 	    # BAM
