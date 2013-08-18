@@ -1,8 +1,7 @@
 #!/usr/bin/python
-__author__ = "dsc @ #2600nl @ irc.smurfnet.ch"
+__author__ = "dsc"
 __copyright__ = "MIT"
-__credits__ = ["Wazakindjes, rawplayer"]
-__maintainer__ = "Wazakindjes, rawplayer"
+__credits__ = ["Wazakindjes"]
 __version__ = "18 aug 2013"
 from random import randrange
 import argparse
