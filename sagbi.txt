@@ -1,3 +1,4 @@
+euro=euri
 zelf=zelluf
 houden=houwe,houdne
 zegt=segt
