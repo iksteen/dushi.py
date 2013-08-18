@@ -1,3 +1,4 @@
+deze=dese
 terug=truk
 maken=zetten
 feestje=fisa
