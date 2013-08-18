@@ -3,22 +3,24 @@ __author__ = "dsc"
 __copyright__ = "MIT"
 __credits__ = ["Wazakindjes"]
 __version__ = "18 aug 2013"
-from random import randrange
+from random import randrange,choice,seed
 import argparse
 import re
 import sys
 import os
 
 FILE_DICT = 'dushi.db'
-PATH_DICT = '%s%s%s' % ('/'.join(os.path.abspath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
+PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
 
 DUSHI_GEHALTE = 6  # HOE LAGER, HOE MEER DUSHI. 3 minimaal.
 
+KKSMILEYS = [';44', ';$', ':$', ':$:$$$::$', ':P', ':ppp', 'X-D', ';P!!', ';\'-)!', '\(^_._^)/!', ';$$', '=S??', ';-O']
 
 class Whollah():
     global PATH_DICT
 
     def __init__(self):
+        seed()
         self.bezem = {}
 
         def doe_ding():
@@ -41,25 +43,31 @@ class Whollah():
                     return v # aw ye
         return None
 
-    def haxor(self, a):
-        def bingo():
-            global DUSHI_GEHALTE
-            if randrange(0, DUSHI_GEHALTE) == 3:
-                return True
-            return False # :(((((((((
+    def bingo(self):
+        global DUSHI_GEHALTE
+        if randrange(0, DUSHI_GEHALTE) == 3:
+            return True
+        return False # :(((((((((
 
-        if bingo():
+    def haxor(self, a):
+        if self.bingo():
             a = a.replace('e', '3')
-        if bingo():
+        if self.bingo():
             a = a.replace('a', '4')
-        if bingo():
+        if self.bingo():
             a = a.replace('o', '0')
-        if bingo():
+        if self.bingo():
             a = a.replace('i', '1')
 
         # ZONNE GROTE KNAL
-        return ''.join([''.join([x.upper() if bingo() else x]) for x in list(a)])
+        return ''.join([''.join([x.upper() if self.bingo() else x]) for x in list(a)])
 
+    def paasmijsmileys(self, a):
+        global KKSMILEYS
+        if self.bingo():
+            return '%s %s' % (a, choice(KKSMILEYS))
+
+        return a
 
 if __name__ == "__main__":
 
@@ -112,6 +120,9 @@ if __name__ == "__main__":
 
         # deze = skeere.haxor(deze), jwt
         deze = skeere.haxor(deze)
+
+        # even kksmileys erbij hax0r3n tok
+        deze = skeere.paasmijsmileys(deze)
 
         # BAM
         print deze
