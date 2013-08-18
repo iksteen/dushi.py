@@ -1,3 +1,4 @@
+terug=truk
 maken=zetten
 feestje=fisa
 hoe gaat het?,hoe gaatie?=zaize?
