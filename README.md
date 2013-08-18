@@ -19,3 +19,4 @@ Irssi
 Ait brada jy gebruikt irssi goed bezig tog ja tog G btr gebruik je dese alias swa
 
 /alias dushi /exec - -o ~/.irssi/dushi.py '$*'
+(r3sp3c7 naar rawplayer)
