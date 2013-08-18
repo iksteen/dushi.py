@@ -56,7 +56,7 @@ class Whollah():
             a = a.replace('i', '1')
 
         # ZONNE GROTE KNAL
-        return ''.join([''.join([x.upper() if self.bingo(0) else x]) for x in list(a)])
+        return ''.join([''.join([x.upper() if self.bingo(True) else x]) for x in list(a)])
 
     def bingo(self, b):
         global DUSHI_GEHALTE, SMILEY_GEHALTE
