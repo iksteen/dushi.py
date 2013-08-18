@@ -106,6 +106,7 @@ amersfoort,utrecht,nijmegen,breda,eindhoven,maastricht,amsterdam,rotterdam,hilve
 gewoon=gwoon
 lol=whaha,wh3h4h4,xDxDxD,:pPpPpPpP,:D
 zie=szie
+ik zie=xie
 coden,programmeren=hosselen,monie maken
 trein=kktrein
 lief,liefde,love=lobbi,lobi,luv,lovv
