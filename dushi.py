@@ -12,7 +12,7 @@ import os
 FILE_DICT = 'dushi.db'
 PATH_DICT = '%s%s%s' % ('/'.join(os.path.abspath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
 
-DUSHI_GEHALTE = 6  # hoe lager, hoe meer dushi. minimaal 3.
+DUSHI_GEHALTE = 6  # HOE LAGER, HOE MEER DUSHI. 3 minimaal.
 
 
 class Whollah():
