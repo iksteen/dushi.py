@@ -1,3 +1,4 @@
+zegt=segt
 waarom=wrm
 facebook=je moeder,je zusje
 zweer=wholla
