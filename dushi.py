@@ -85,7 +85,7 @@ if __name__ == "__main__":
 	    # werd up
 	    skeere = Whollah()
 
-	    out = []
+	    dushi = []
 	    for w in zemmel:
 
 		# zoek die ding
@@ -98,13 +98,13 @@ if __name__ == "__main__":
 		    new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
 
 		    # heuelemaal mooi
-		    out.append(new)
+		    dushi.append(new)
 		else:
 		    # skeer
-		    out.append(w)
+		    dushi.append(w)
 
 	    # KLAAR OUTPUT
-	    deze = ' '.join(out)
+	    deze = ' '.join(dushi)
 
 	    # deze = skeere.haxor(deze), jwt
 	    deze = skeere.haxor(deze)
