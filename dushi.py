@@ -35,6 +35,9 @@ class Whollah():
 
     # ewa
     def sagbi(self, a):
+        if not a:
+            return None
+
         for k, v in self.bezem.items():
             for i in k.split(','):
                 if i == a:
