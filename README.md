@@ -24,6 +24,6 @@ Ait brada jy gebruikt irssi goed bezig tog ja tog G btr gebruik je dese alias sw
 
 Updeets
 ===================================================
-om flex te blijfe vor al die spange smatjes moe jeje databees wel up2deet houwe tho
+om flex te blijfe vor al die spange smatjes moe jeje databees wel up2deet houwe th0
 
     ~$ ./dushi.py --update
