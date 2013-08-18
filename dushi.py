@@ -12,6 +12,8 @@ import os
 
 FILE_DICT = 'sagbi.txt'
 PATH_DICT = '%s%s%s' % ('/'.join(os.path.abspath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
+
+DUSHI_GEHALTE = 6 # hoe lager, hoe meer dushi. minimaal 3.
 	
 class Whollah():
     global PATH_DICT
@@ -41,7 +43,8 @@ class Whollah():
 
     def haxor(self, a):
         def bingo():
-            if randrange(0, 6) == 3:
+            global DUSHI_GEHALTE
+            if randrange(0, DUSHI_GEHALTE) == 3:
                 return True
             return False # :(((((((((
 
