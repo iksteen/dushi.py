@@ -109,13 +109,13 @@ if __name__ == "__main__":
 		    out.append(w)
 
 	    # BAM KLAAR OUTPUT
-	    breezah = ' '.join(out)
+	    deze = ' '.join(out)
 
 	    # misscjein nog ff hax0rfyen =]]]
-	    breezah = skeere.haxor(breezah)
+	    deze = skeere.haxor(deze)
 
 	    # BAM
-	    print breezah
+	    print deze
 	else:
 		# gast, input?
 		pass
