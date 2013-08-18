@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     if args.update:
         import urllib2
-        db = 'https://raw.github.com/nattewasbeer/dushi.py/master/sagbi.txt'
+        db = 'https://raw.github.com/nattewasbeer/dushi.py/master/dushi.db'
 
         response = urllib2.urlopen(db)
         f = open(PATH_DICT,'w')
@@ -99,13 +99,13 @@ if __name__ == "__main__":
             if chimeid: # jwt
                 new = chimeid[randrange(0, len(chimeid))]
 
-                # kommas, punten, how do they werk!?
+                # oki
                 new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
 
                 # heuelemaal mooi
                 dushi.append(new)
             else:
-                # skeer
+                # :((
                 dushi.append(w)
 
         # EINDELIJK KLAAR
