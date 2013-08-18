@@ -3,8 +3,9 @@ __author__ = "dsc @ #2600nl @ irc.smurfnet.ch"
 __copyright__ = "nope.jpg"
 __credits__ = ["Wazakindjes, rawplayer"]  # 1 lobbi!1
 __maintainer__ = "Wazakindjes, rawplayer"
-__version__ = "17 aug 2013"
+__version__ = "18 aug 2013"
 from random import randrange
+import argparse
 import re
 import sys
 import os
@@ -65,10 +66,13 @@ class Whollah():
 
 
 if __name__ == "__main__":
-	if len(sys.argv) <= 1:
-	    print 'gast, input?\n'
-	    sys.exit()
-	elif len(sys.argv) == 2 and sys.argv[1] == 'update':
+
+	p = argparse.ArgumentParser()
+	p.add_argument('--update', help='updeet db G', action='store_true')
+	p.add_argument('--halp', help='probelm?', action='store_true')
+	args, zemmel = p.parse_known_args()
+	
+	if args.update:
 		import urllib2
 		db = 'https://raw.github.com/nattewasbeer/dushi.py/master/sagbi.txt'
 		
@@ -78,21 +82,21 @@ if __name__ == "__main__":
 		f.close()
 	
 		print '%s up2date, bam' % FILE_DICT
-		sys.exit()
-	else:
-	    # werd up
-	    sagbi = Whollah()
 
-	    # waz met deze
-	    zemmel = ' '.join(sys.argv[1::])
+	elif args.halp:
+		print 'https://github.com/nattewasbeer/dushi.py/blob/master/README.md'
+
+	elif zemmel:
+	    # werd up
+	    skeere = Whollah()
 
 	    out = []
-	    for w in zemmel.split():
+	    for w in zemmel:
 
-		# zoek in die ding G
-		chimeid = sagbi.sagbi(re.sub(r'\W+', '', w).lower())
+		# zoek die ding
+		chimeid = skeere.sagbi(re.sub(r'\W+', '', w).lower())
 
-		if chimeid:
+		if chimeid: #jwt
 		    new = chimeid[randrange(0, len(chimeid))]
 
 		    # ff die kommas en punten terughalen als ze er waren :@@@@@
@@ -104,11 +108,14 @@ if __name__ == "__main__":
 		    # skeer
 		    out.append(w)
 
-	    # BAM KLAAR OUTPUT ALLES
+	    # BAM KLAAR OUTPUT
 	    breezah = ' '.join(out)
 
-	    # ok, nog ff hax0rfyen
-	    breezah = sagbi.haxor(breezah)
+	    # misscjein nog ff hax0rfyen =]]]
+	    breezah = skeere.haxor(breezah)
 
-	    # BAM KLAAR
+	    # BAM
 	    print breezah
+	else:
+		# gast, input?
+		pass
