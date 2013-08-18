@@ -9,27 +9,23 @@ import re
 import sys
 import os
 
-# whatever
-DICT = '%s%s%s' % ('/'.join(os.path.abspath(__file__).split('/')[:-1]),'/','sagbi.txt')
-
-if len(sys.argv) <= 1:
-    print 'gast, input?\n'
-    sys.exit()
-
+FILE_DICT = 'sagbi.txt'
+PATH_DICT = '%s%s%s' % ('/'.join(os.path.abspath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
+	
 class Whollah():
-    global DICT
+    global PATH_DICT
+
     def __init__(self):
         self.bezem = {}
 
         def parse_dict():
-            f = open(DICT)
-            a = f.readlines()
-            f.close()
-            for l in a:
-                l = l.replace('\n', '').split('=')
+            f = open(PATH_DICT)
+            for l in [z.replace('\n','').split('=') for z in f.readlines() if z]:
                 key = l[0]
                 value = l[1].split(',')
+
                 self.bezem[key] = value
+            f.close()
 
         parse_dict()
 
@@ -69,35 +65,50 @@ class Whollah():
 
 
 if __name__ == "__main__":
-    # werd up
-    sagbi = Whollah()
+	if len(sys.argv) <= 1:
+	    print 'gast, input?\n'
+	    sys.exit()
+	elif len(sys.argv) == 2 and sys.argv[1] == 'update':
+		import urllib2
+		db = 'https://raw.github.com/nattewasbeer/dushi.py/master/sagbi.txt'
+		
+		response = urllib2.urlopen(db)
+		f = open(PATH_DICT,'w')
+		f.write(response.read())
+		f.close()
+	
+		print '%s up2date, bam' % FILE_DICT
+		sys.exit()
+	else:
+	    # werd up
+	    sagbi = Whollah()
 
-    # waz met deze
-    zemmel = ' '.join(sys.argv[1::])
+	    # waz met deze
+	    zemmel = ' '.join(sys.argv[1::])
 
-    out = []
-    for w in zemmel.split():
+	    out = []
+	    for w in zemmel.split():
 
-        # zoek in die ding G
-        chimeid = sagbi.sagbi(re.sub(r'\W+', '', w).lower())
+		# zoek in die ding G
+		chimeid = sagbi.sagbi(re.sub(r'\W+', '', w).lower())
 
-        if chimeid:
-            new = chimeid[randrange(0, len(chimeid))]
+		if chimeid:
+		    new = chimeid[randrange(0, len(chimeid))]
 
-            # ff die kommas en punten terughalen als ze er waren :@@@@@
-            new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
+		    # ff die kommas en punten terughalen als ze er waren :@@@@@
+		    new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
 
-            # heuelemaal mooi
-            out.append(new)
-        else:
-            # skeer
-            out.append(w)
+		    # heuelemaal mooi
+		    out.append(new)
+		else:
+		    # skeer
+		    out.append(w)
 
-    # BAM KLAAR OUTPUT ALLES
-    breezah = ' '.join(out)
+	    # BAM KLAAR OUTPUT ALLES
+	    breezah = ' '.join(out)
 
-    # ok, nog ff hax0rfyen
-    breezah = sagbi.haxor(breezah)
+	    # ok, nog ff hax0rfyen
+	    breezah = sagbi.haxor(breezah)
 
-    # BAM KLAAR
-    print breezah
+	    # BAM KLAAR
+	    print breezah
