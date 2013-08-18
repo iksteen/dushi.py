@@ -70,7 +70,7 @@ class Whollah():
 
 if __name__ == "__main__":
     # werd up
-    poepie = Whollah()
+    sagbi = Whollah()
 
     # waz met deze
     zemmel = ' '.join(sys.argv[1::])
@@ -79,11 +79,10 @@ if __name__ == "__main__":
     for w in zemmel.split():
 
         # zoek in die ding G
-        sletje = poepie.sagbi(re.sub(r'\W+', '', w).lower())
+        chimeid = sagbi.sagbi(re.sub(r'\W+', '', w).lower())
 
-        if sletje:
-            # BAM
-            new = sletje[randrange(0, len(sletje))]
+        if chimeid:
+            new = chimeid[randrange(0, len(chimeid))]
 
             # ff die kommas en punten terughalen als ze er waren :@@@@@
             new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
@@ -98,7 +97,7 @@ if __name__ == "__main__":
     breezah = ' '.join(out)
 
     # ok, nog ff hax0rfyen
-    breezah = poepie.haxor(breezah)
+    breezah = sagbi.haxor(breezah)
 
     # BAM KLAAR
     print breezah
