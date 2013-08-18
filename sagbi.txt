@@ -1,3 +1,5 @@
+zelf=zelluf
+houden=houwe,houdne
 zegt=segt
 waarom=wrm
 facebook=je moeder,je zusje
@@ -59,7 +61,7 @@ schaam je=tfoe
 sup,hallo,hoi,moge,mogge,goedemiddag,goedemorgen,hi,hey,jo,yo,yow,hai=Fakka G,Fakka,sup G,RUSTIG,RUSTIK,ewa,vrind,swa,G,jeweetzelf,faffie,faFFie,fawaka
 best=bestt'
 even=ff,effe
-goed=vies,viez,spang
+goed=vies,viez,spang,tan2lauw
 relaxed=spang
 coffeeshop,koffieshop=shoppa
 nee=n0mang,n0,n0p3,n0 mimang,neen,n33n
