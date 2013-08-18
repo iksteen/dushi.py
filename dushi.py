@@ -22,10 +22,8 @@ class Whollah():
         def parse_dict():
             f = open(PATH_DICT)
             for l in [z.replace('\n','').split('=') for z in f.readlines() if z]:
-                key = l[0]
-                value = l[1].split(',')
+                self.bezem[l[0]] = l[1]
 
-                self.bezem[key] = value
             f.close()
 
         parse_dict()
