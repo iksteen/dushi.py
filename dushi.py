@@ -65,7 +65,10 @@ if __name__ == "__main__":
 	p.add_argument('--update', help='updeet db G', action='store_true')
 	p.add_argument('--halp', help='probelm?', action='store_true')
 	args, zemmel = p.parse_known_args()
-	
+
+	if len(zemmel) == 1:
+		zemmel = ''.join(zemmel).split() # skeere args fix
+			
 	if args.update:
 		import urllib2
 		db = 'https://raw.github.com/nattewasbeer/dushi.py/master/sagbi.txt'
