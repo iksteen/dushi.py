@@ -1,10 +1,10 @@
 dushi.py
 ========
 
-    ~$ ./dushi.py Hey, ik kwam gisteren je moeder tegen en die vertelde me dat je oom een boel geld had gekregen van zijn vrouw. Wanneer ga jij weer eens naar Jammy om je scooter te verkopen?
+    ~$ ./dushi.py Hallo vrienden. Ik ben Martijn en ik kom uit Amersfoort. Ik verkoop mijn scooter. Hij gaat heel snel en ik rij er veel mee. Ik verkoop hem voor 100 euro.
 
 
-    'Fakka G, iiick kWam Gisterjn Jehh m0Err tegen en die VeRTElde muHh diE jehh 00M een 0mIn m0nies Had GekreGen van ZIjjN ch1mEid. Wanneer ga jUh Weer EENs NaaR Jammy 0m jehh sc00ter te vErk0pen?'
+    'faFF1E negers. 1ck ben Mart1jn En 111ck kom u1t kApo3City G. 1cK hoss3l m1jn mot0. hJ1 gaat taNtoE SneL en 1cK boeKUh er om1n VEeL mee. iiicK h0ssel hem v0' barkI euri :3:3:3:3'
 
 Instalatie
 ===================================================
