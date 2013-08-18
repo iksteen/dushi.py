@@ -1,7 +1,7 @@
 #!/usr/bin/python
 __author__ = "dsc @ #2600nl @ irc.smurfnet.ch"
-__copyright__ = "nope.jpg"
-__credits__ = ["Wazakindjes, rawplayer"]  # 1 lobbi!1
+__copyright__ = "MIT"
+__credits__ = ["Wazakindjes, rawplayer"]
 __maintainer__ = "Wazakindjes, rawplayer"
 __version__ = "18 aug 2013"
 from random import randrange
@@ -19,14 +19,15 @@ class Whollah():
     def __init__(self):
         self.bezem = {}
 
-        def parse_dict():
+        def doe_ding():
             f = open(PATH_DICT)
-            for kv in [z.replace('\n','').split('=') for z in f.readlines() if z]:
-                self.bezem[kv[0]] = kv[1]
+
+            for k, v in [z.replace('\n','').split('=') for z in f.readlines() if z]:
+                self.bezem[k] = v.split(',')
 
             f.close()
 
-        parse_dict()
+        doe_ding()
 
     def sagbi(self, a): #ewa
         if not a:
@@ -65,7 +66,7 @@ if __name__ == "__main__":
 	args, zemmel = p.parse_known_args()
 
 	if len(zemmel) == 1:
-		zemmel = ''.join(zemmel).split() # skeere args fix
+		zemmel = ''.join(zemmel).split() # args fix
 			
 	if args.update:
 		import urllib2
@@ -79,7 +80,6 @@ if __name__ == "__main__":
 		print '%s up2date, bam' % FILE_DICT
 
 	elif args.halp:
-		# waz met jou
 		print 'https://github.com/nattewasbeer/dushi.py/blob/master/README.md'
 
 	elif zemmel:
@@ -89,13 +89,13 @@ if __name__ == "__main__":
 	    dushi = []
 	    for w in zemmel:
 
-		# zoek die ding
+		# zoek ding
 		chimeid = skeere.sagbi(re.sub(r'\W+', '', w).lower())
 
-		if chimeid: #jwt
+		if chimeid: # jwt
 		    new = chimeid[randrange(0, len(chimeid))]
 
-		    # ff die kommas en punten terughalen als ze er waren :@@@@@
+		    # kommas, punten, how do they werk!?
 		    new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
 
 		    # heuelemaal mooi
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 		    # skeer
 		    dushi.append(w)
 
-	    # KLAAR OUTPUT
+	    # EINDELIJK KLAAR
 	    deze = ' '.join(dushi)
 
 	    # deze = skeere.haxor(deze), jwt

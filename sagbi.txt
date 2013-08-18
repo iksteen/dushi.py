@@ -1,6 +1,6 @@
+houden,houde=houwe,houdne
 euro=euri
 zelf=zelluf
-houden=houwe,houdne
 zegt=segt
 waarom=wrm
 facebook=je moeder,je zusje
@@ -70,7 +70,7 @@ kus=kusj,kusJj,Kusjz :4
 meisje,vrouw=bitch,chimeid,chimeisje,wijf,sletje,jailbait,hoer,kkhoer,chingmeid,sma,chicki
 omdat=cuz,bcuz,cos
 internet=intwerebs
-xD,:p,:P,:D,:),:-),;-),=),(=,=],[=,^^=:PpPpPp,:$:$:$,:3:3:3:3,8')!!xD:$,:33:$:3:$PpPp,=3
+xd,xD,^^=:PpPpPp,:$:$:$,:3:3:3:3,8')!!xD:$,:33:$:3:$PpPp,:3
 irc=de straat,de block
 moeder=moerr
 krijg=kryg
@@ -113,7 +113,7 @@ penis=peen0r,pe33n0r
 me=muhh
 bek=koulu bek
 vandaag=vandaAgj
-wiet=jonko,wiri
+wiet,thc=jonko,wiri
 jonge=jongu
 zogenaamd=zema
 iedereen=iederen
