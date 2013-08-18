@@ -21,3 +21,9 @@ Ait brada jy gebruikt irssi goed bezig tog ja tog G btr gebruik je dese alias sw
     /alias dushi /exec - -o ~/.irssi/dushi.py '$*'
 
 (r3sp3c7 2 r4wpl4y3r)
+
+Updeets
+===================================================
+om flex te blijfe vor al die spange smatjes moe jeje databees wel up2deet houwe vrind
+
+    ~$ ./dushi.py update
