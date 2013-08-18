@@ -21,8 +21,8 @@ class Whollah():
 
         def parse_dict():
             f = open(PATH_DICT)
-            for l in [z.replace('\n','').split('=') for z in f.readlines() if z]:
-                self.bezem[l[0]] = l[1]
+            for kv in [z.replace('\n','').split('=') for z in f.readlines() if z]:
+                self.bezem[kv[0]] = kv[1]
 
             f.close()
 
