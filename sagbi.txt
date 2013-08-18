@@ -1,3 +1,4 @@
+een=die
 houden,houde=houwe,houdne
 euro=euri
 zelf=zelluf
