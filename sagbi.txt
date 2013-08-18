@@ -1,3 +1,5 @@
+source=saus
+geef=paas
 een=die
 houden,houde=houwe,houdne
 euro=euri
