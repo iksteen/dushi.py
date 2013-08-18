@@ -26,4 +26,4 @@ Updeets
 ===================================================
 om flex te blijfe vor al die spange smatjes moe jeje databees wel up2deet houwe tho
 
-    ~$ ./dushi.py update
+    ~$ ./dushi.py --update
