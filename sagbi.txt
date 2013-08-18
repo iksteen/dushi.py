@@ -38,7 +38,7 @@ even=ff,effe
 goed=vies
 nee=n0mang,n0,n0p3,n0 mimang,neen,n33n
 kus=kusj,kusJj,Kusjz :4
-meisje=bitch,chimeid,chimeisje,wijf,sletje,jailbait,hoer,kkhoer
+meisje,vrouw=bitch,chimeid,chimeisje,wijf,sletje,jailbait,hoer,kkhoer
 omdat=cuz,bcuz,cos
 internet=intwerebs
 xD,:p,:P,:D,:),:-),;-),=),(=,=],[=,^^=:PpPpPp,:$:$:$,:3:3:3:3,8')!!xD:$,:33:$:3:$PpPp,=3
