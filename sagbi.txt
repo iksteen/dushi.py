@@ -1,3 +1,4 @@
+facebook=je moeder,je zusje
 zweer=wholla
 deze=dese
 terug=truk
@@ -61,7 +62,7 @@ relaxed=spang
 coffeeshop,koffieshop=shoppa
 nee=n0mang,n0,n0p3,n0 mimang,neen,n33n
 kus=kusj,kusJj,Kusjz :4
-meisje,vrouw=bitch,chimeid,chimeisje,wijf,sletje,jailbait,hoer,kkhoer,chingmeid,sma
+meisje,vrouw=bitch,chimeid,chimeisje,wijf,sletje,jailbait,hoer,kkhoer,chingmeid,sma,chicki
 omdat=cuz,bcuz,cos
 internet=intwerebs
 xD,:p,:P,:D,:),:-),;-),=),(=,=],[=,^^=:PpPpPp,:$:$:$,:3:3:3:3,8')!!xD:$,:33:$:3:$PpPp,=3
