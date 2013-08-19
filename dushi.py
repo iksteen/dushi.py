@@ -121,8 +121,8 @@ if __name__ == "__main__":
             else:
                 # :((
                 dushi.append(w)
-
-        # EINDELIJK KLAAR
+	
+	# BIJNA KLAAR
         deze = ' '.join(dushi)
 
         if DUSHI_ENABLED:
