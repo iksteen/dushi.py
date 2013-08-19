@@ -2,7 +2,7 @@
 __author__ = "dsc"
 __copyright__ = "MIT"
 __credits__ = ["Wazakindjes"]
-__version__ = "18 aug 2013"
+__version__ = "19 aug 2013"
 from random import randrange,choice
 import argparse
 import re
@@ -12,12 +12,11 @@ import os
 FILE_DICT = 'dushi.db'
 PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
 
-DUSHI_GEHALTE = 6  # HOE LAGER, HOE MEER DUSHI! 3 minimaal.
-SMILEY_GEHALTE= 20
+DUSHI_ENABLED = True
+SMILEY_ENABLED = True
 
-KUTSMILEYS = [';44', ';$', ':$', ':$:$$$::$', ':P',
-              ':ppp', 'X-D', ';P!!', ';\'-)!', '\(^_._^)/!',
-              ';$$', '=S??', ';-O', ':$:3333']
+DUSHI_GEHALTE = 8  # HOE LAGER, HOE MEER DUSHI! 2 minimaal.
+SMILEY_GEHALTE= 3  # HOE LAGER, HOE MEER SMILEYS! 2 minimaal.
 
 class Whollah():
     global PATH_DICT
@@ -56,26 +55,24 @@ class Whollah():
             a = a.replace('i', '1')
 
         # ZONNE GROTE KNAL
-        return ''.join([''.join([x.upper() if self.bingo(True) else x]) for x in list(a)])
+        return ''.join(x.upper() if self.bingo(True) else x for x in a)
 
     def bingo(self, b):
         global DUSHI_GEHALTE, SMILEY_GEHALTE
 
         if b:
-            if randrange(0, DUSHI_GEHALTE) == 3:
+            if randrange(0, DUSHI_GEHALTE) == 1:
                 return True
 
         else:
-            if randrange(0, SMILEY_GEHALTE) % 2 == 0:
+            if randrange(0, SMILEY_GEHALTE) == 1:
                 return True
 
         return False  # :(((((((((
 
-    def smileys(self, a):
-        global KUTSMILEYS
-
-        if self.bingo(False):
-            return '%s %s' % (a, choice(KUTSMILEYS))
+    def kutsmileys(self, a):
+        if self.bingo(False) and self.bezem.has_key('kutsmileys'):
+            return '%s %s' % (a, choice(self.bezem['kutsmileys']))
 
         return a
 
@@ -132,7 +129,7 @@ if __name__ == "__main__":
         deze = skeere.haxor(deze)
 
         # even kutsmileys erbij hax0r3n tok
-        deze = skeere.smileys(deze)
+        deze = skeere.kutsmileys(deze)
 
         # BAM
         print deze
