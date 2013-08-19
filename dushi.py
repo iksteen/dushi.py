@@ -1,6 +1,6 @@
 #!/usr/bin/python
 __author__ = "dsc"
-__copyright__ = "MIT"
+__copyright__ = "R&D"
 __credits__ = ["Wazakindjes"]
 __version__ = "19 aug 2013"
 from random import randrange,choice
