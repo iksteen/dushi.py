@@ -44,7 +44,7 @@ class Whollah():
                     return v # aw ye
         return None
 
-    def haxor(self, a):
+    def dushi(self, a):
         if self.bingo(True):
             a = a.replace('e', '3')
         if self.bingo(True):
@@ -125,11 +125,11 @@ if __name__ == "__main__":
         # EINDELIJK KLAAR
         deze = ' '.join(dushi)
 
-        # deze = skeere.haxor(deze), jwt
-        deze = skeere.haxor(deze)
+        if DUSHI_ENABLED:
+	        deze = skeere.dushi(deze)
 
-        # even kutsmileys erbij hax0r3n tok
-        deze = skeere.kutsmileys(deze)
+        if SMILEY_ENABLED:
+	        deze = skeere.kutsmileys(deze)
 
         # BAM
         print deze
