@@ -68,7 +68,7 @@ class Whollah():
             if randrange(0, SMILEY_GEHALTE) == 1:
                 return True
 
-        return False  # :(((((((((
+        return False  # :((((((((((
 
     def kutsmileys(self, a):
         if self.bingo(False) and self.bezem.has_key('kutsmileys'):
