@@ -9,20 +9,22 @@ import re
 import sys
 import os
 
+FILE_ERROR = 'skeer.err'
 FILE_DICT = 'dushi.db'
 PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
 
 DUSHI_ENABLED = True
 SMILEY_ENABLED = True
-
-DUSHI_GEHALTE = 8  # HOE LAGER, HOE MEER DUSHI! 2 minimaal.
-SMILEY_GEHALTE= 3  # HOE LAGER, HOE MEER SMILEYS! 2 minimaal.
+HAXOR_ENABLED = True
 
 class Whollah():
-    global PATH_DICT
-
     def __init__(self):
         self.bezem = {}
+	
+	# gehaltes altijd minimaal 2. hoe lager, hoe dushi'r de zin
+	self.DUSHI_GEHALTE = 20
+	self.SMILEY_GEHALTE = 3
+	self.HAXOR_GEHALTE = 3
 
         def doe_ding():
             f = open(PATH_DICT)
@@ -44,34 +46,23 @@ class Whollah():
                     return v # aw ye
         return None
 
+    def haxor(self, a):
+	for k,v in {'e': '3', 'a': '4', 'o': '0', 'i': '1'}.items():
+		if k in a and self.bingo(self.HAXOR_GEHALTE):
+			a = a.replace(k,v)
+	return a
+
     def dushi(self, a):
-        if self.bingo(True):
-            a = a.replace('e', '3')
-        if self.bingo(True):
-            a = a.replace('a', '4')
-        if self.bingo(True):
-            a = a.replace('o', '0')
-        if self.bingo(True):
-            a = a.replace('i', '1')
+        return ''.join(x.upper() if self.bingo(self.DUSHI_GEHALTE) else x for x in a)
 
-        # ZONNE GROTE KNAL
-        return ''.join(x.upper() if self.bingo(True) else x for x in a)
-
-    def bingo(self, b):
-        global DUSHI_GEHALTE, SMILEY_GEHALTE
-
-        if b:
-            if randrange(0, DUSHI_GEHALTE) == 1:
-                return True
-
-        else:
-            if randrange(0, SMILEY_GEHALTE) == 1:
-                return True
+    def bingo(self, MAX):
+        if randrange(0, MAX) == 1:
+            return True
 
         return False  # :((((((((((
 
     def kutsmileys(self, a):
-        if self.bingo(False) and self.bezem.has_key('kutsmileys'):
+        if self.bingo(self.SMILEY_GEHALTE) and self.bezem.has_key('kutsmileys'):
             return '%s %s' % (a, choice(self.bezem['kutsmileys']))
 
         return a
@@ -130,6 +121,8 @@ if __name__ == "__main__":
 
         if SMILEY_ENABLED:
 	        deze = skeere.kutsmileys(deze)
+	if HAXOR_ENABLED:
+		deze = skeere.haxor(deze)
 
         # BAM
         print deze
