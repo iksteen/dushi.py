@@ -98,7 +98,7 @@ if __name__ == "__main__":
             chimeid = skeere.sagbi(w.lower()) # zoek ding
 
             if chimeid:  # jwt
-                new = chimeid[randrange(0, len(chimeid))]
+                new = choice(chimeid)
 
                 # oki
                 new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
