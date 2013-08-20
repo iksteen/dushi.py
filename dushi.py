@@ -3,25 +3,25 @@ __author__ = "dsc"
 __copyright__ = "R&D"
 __credits__ = ["Wazakindjes"]
 __version__ = "20 aug 2013"
-from random import randrange,choice
+from random import randrange, choice
 import argparse
 import re
 import sys
 import os
-#
-FILE_ERROR = 'skeer.err'
-FILE_DICT = 'dushi.db'
-PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]), '/', FILE_DICT)  # wat
 
 DUSHI_ENABLED = True
 SMILEY_ENABLED = True
 HAXOR_ENABLED = True
 
-# gehaltes altijd minimaal 2. hoe lager, hoe kutter de zin :pP
+# gehaltes altijd minimaal 2. hoe lager, hoe meer dushi.
 DUSHI_GEHALTE = 20
 SMILEY_GEHALTE = 3
 HAXOR_GEHALTE = 3
 
+FILE_ERROR = 'skeer.err'
+FILE_DICT = 'dushi.db'
+PATH_ABS = '/'.join(os.path.realpath(__file__).split('/')[:-1]) + '/'
+PATH_DICT = '%s%s' % (PATH_ABS, FILE_DICT)
 
 class Whollah():
     def __init__(self):
@@ -47,6 +47,7 @@ class Whollah():
 
     def haxor(self, a):
         r = {'e': '3', 'a': '4', 'o': '0', 'i': '1'}
+
         for k, v in r.items():
             if k in a and self.bingo(HAXOR_GEHALTE):
                 a = a.replace(k, v)
@@ -65,6 +66,7 @@ class Whollah():
             return '%s %s' % (a, choice(self.bezem['kutsmileys']))
         return a
 
+
 if __name__ == "__main__":
 
     p = argparse.ArgumentParser()
@@ -75,9 +77,11 @@ if __name__ == "__main__":
     p.add_argument('--halp', help='probelm?', action='store_true')
     args, zemmel = p.parse_known_args()
 
+    # args fix
     if len(zemmel) == 1:
-        zemmel = ''.join(zemmel).split() # args fix
+        zemmel = ''.join(zemmel).split()
 
+    # check flags
     if args.dushi:
         DUSHI_ENABLED = True
     if args.hax:
@@ -85,21 +89,7 @@ if __name__ == "__main__":
     if args.smile:
         SMILEY_ENABLED = True
 
-    if args.update:
-        import urllib2
-        db = 'https://raw.github.com/nattewasbeer/dushi.py/master/dushi.db'
-
-        response = urllib2.urlopen(db)
-        f = open(PATH_DICT,'w')
-        f.write(response.read())
-        f.close()
-
-        print '%s up2date, bam' % FILE_DICT
-
-    elif args.halp:
-        print 'https://github.com/nattewasbeer/dushi.py/blob/master/README.md'
-
-    elif zemmel:
+    if zemmel:
         # werd up
         skeere = Whollah()
 
@@ -132,6 +122,29 @@ if __name__ == "__main__":
 
         # BAM
         print deze
+
+    elif args.halp:
+        print 'https://github.com/nattewasbeer/dushi.py/blob/master/README.md'
+
+    elif args.update:
+        import urllib2
+
+        d = [{
+                 'uri': 'https://raw.github.com/nattewasbeer/dushi.py/master/dushi.db',
+                 'local': FILE_DICT
+             }, {
+                 'uri': 'https://raw.github.com/nattewasbeer/dushi.py/master/dushi.py',
+                 'local': os.path.realpath(__file__).split('/')[-1:][0]
+             }
+        ]
+
+        for i in d:
+            response = urllib2.urlopen(i['uri'])
+            f = open(i['local'], 'w')
+            f.write(response.read())
+            f.close()
+
+            print 'up2deet: %s' % i['local']
     else:
         # gast, input?
         pass
