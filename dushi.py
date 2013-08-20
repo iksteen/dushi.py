@@ -11,25 +11,27 @@ import os
 
 FILE_ERROR = 'skeer.err'
 FILE_DICT = 'dushi.db'
-PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]),'/',FILE_DICT) # wat
+PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]), '/', FILE_DICT)  # wat
 
 DUSHI_ENABLED = True
 SMILEY_ENABLED = True
 HAXOR_ENABLED = True
 
+# gehaltes altijd minimaal 2. hoe lager, hoe kutter de zin.
+DUSHI_GEHALTE = 20
+SMILEY_GEHALTE = 3
+HAXOR_GEHALTE = 3
+
+
 class Whollah():
     def __init__(self):
+        global DUSHI_GEHALTE, SMILEY_GEHALTE, HAXOR_GEHALTE
         self.bezem = {}
-	
-	# gehaltes altijd minimaal 2. hoe lager, hoe dushi'r de zin
-	self.DUSHI_GEHALTE = 20
-	self.SMILEY_GEHALTE = 3
-	self.HAXOR_GEHALTE = 3
 
         def doe_ding():
             f = open(PATH_DICT)
 
-            for k, v in [z.replace('\n','').split('=') for z in f.readlines() if z]:
+            for k, v in [z.replace('\n', '').split('=') for z in f.readlines() if z]:
                 self.bezem[k] = v.split(',')
 
             f.close()
@@ -37,9 +39,6 @@ class Whollah():
         doe_ding()
 
     def sagbi(self, a): #ewa
-        if not a:
-            return None
-
         for k, v in self.bezem.items():
             for i in k.split(','):
                 if i == a:
@@ -47,35 +46,44 @@ class Whollah():
         return None
 
     def haxor(self, a):
-	for k,v in {'e': '3', 'a': '4', 'o': '0', 'i': '1'}.items():
-		if k in a and self.bingo(self.HAXOR_GEHALTE):
-			a = a.replace(k,v)
-	return a
+        r = {'e': '3', 'a': '4', 'o': '0', 'i': '1'}
+        for k, v in r.items():
+            if k in a and self.bingo(HAXOR_GEHALTE):
+                a = a.replace(k, v)
+        return a
 
     def dushi(self, a):
-        return ''.join(x.upper() if self.bingo(self.DUSHI_GEHALTE) else x for x in a)
+        return ''.join(x.upper() if self.bingo(DUSHI_GEHALTE) else x for x in a)
 
     def bingo(self, MAX):
         if randrange(0, MAX) == 1:
             return True
-
         return False  # :((((((((((
 
     def kutsmileys(self, a):
-        if self.bingo(self.SMILEY_GEHALTE) and self.bezem.has_key('kutsmileys'):
+        if self.bingo(SMILEY_GEHALTE) and 'kutsmileys' in self.bezem:
             return '%s %s' % (a, choice(self.bezem['kutsmileys']))
-
         return a
 
 if __name__ == "__main__":
 
     p = argparse.ArgumentParser()
+    p.add_argument('--dushi', help='dUsHi MOdE ON. Default %s' % DUSHI_ENABLED, action='store_true')
+    p.add_argument('--hax', help='h4x0r m0d3 ON. Default: %s' % HAXOR_ENABLED, action='store_true')
+    p.add_argument('--smile', help='smiley mode ON :$:Pp:$. Default %s' % SMILEY_ENABLED, action='store_true')
     p.add_argument('--update', help='updeet db G', action='store_true')
     p.add_argument('--halp', help='probelm?', action='store_true')
     args, zemmel = p.parse_known_args()
 
     if len(zemmel) == 1:
         zemmel = ''.join(zemmel).split() # args fix
+
+    if args.dushi:
+        DUSHI_ENABLED = True
+    if args.hax:
+        HAXOR_ENABLED = True
+    if args.smile:
+        SMILEY_ENABLED = True
 
     if args.update:
         import urllib2
@@ -97,11 +105,9 @@ if __name__ == "__main__":
 
         dushi = []
         for w in zemmel:
+            chimeid = skeere.sagbi(w.lower()) # zoek ding
 
-            # zoek ding
-            chimeid = skeere.sagbi(re.sub(r'\W+', '', w).lower())
-
-            if chimeid: # jwt
+            if chimeid:  # jwt
                 new = chimeid[randrange(0, len(chimeid))]
 
                 # oki
@@ -110,19 +116,19 @@ if __name__ == "__main__":
                 # heuelemaal mooi
                 dushi.append(new)
             else:
-                # :((
-                dushi.append(w)
-	
-	# BIJNA KLAAR
+                dushi.append(w)  # :((
+
+        # BIJNA KLAAR
         deze = ' '.join(dushi)
 
         if DUSHI_ENABLED:
-	        deze = skeere.dushi(deze)
+            deze = skeere.dushi(deze)
 
         if SMILEY_ENABLED:
-	        deze = skeere.kutsmileys(deze)
-	if HAXOR_ENABLED:
-		deze = skeere.haxor(deze)
+            deze = skeere.kutsmileys(deze)
+
+        if HAXOR_ENABLED:
+            deze = skeere.haxor(deze)
 
         # BAM
         print deze
