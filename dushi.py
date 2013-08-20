@@ -35,7 +35,7 @@ class Whollah():
                 self.bezem[k] = v.split(',')
 
             f.close()
-            
+
         doe_ding()
 
     def sagbi(self, a): #ewa
@@ -68,9 +68,9 @@ class Whollah():
 if __name__ == "__main__":
 
     p = argparse.ArgumentParser()
-    p.add_argument('--dushi', help='dUsHi MOdE ON. Default %s' % DUSHI_ENABLED, action='store_true')
+    p.add_argument('--dushi', help='dUsHi MOdE ON. Default: %s' % DUSHI_ENABLED, action='store_true')
     p.add_argument('--hax', help='h4x0r m0d3 ON. Default: %s' % HAXOR_ENABLED, action='store_true')
-    p.add_argument('--smile', help='smiley mode ON :$:Pp:$. Default %s' % SMILEY_ENABLED, action='store_true')
+    p.add_argument('--smile', help='smiley mode ON :$:Pp:$. Default: %s' % SMILEY_ENABLED, action='store_true')
     p.add_argument('--update', help='updeet db G', action='store_true')
     p.add_argument('--halp', help='probelm?', action='store_true')
     args, zemmel = p.parse_known_args()
