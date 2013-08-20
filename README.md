@@ -22,6 +22,6 @@ Ait brada jy gebruikt irssi goed bezig btr gebruik je dese alias swa
 
 Updeets
 ===================================================
-Vor databees updeets gebruik je --update mimang
+Voor die updeets gebruik jehh --update mimang
 
     ~$ ./dushi.py --update
