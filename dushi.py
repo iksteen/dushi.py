@@ -8,7 +8,7 @@ import argparse
 import re
 import sys
 import os
-
+#
 FILE_ERROR = 'skeer.err'
 FILE_DICT = 'dushi.db'
 PATH_DICT = '%s%s%s' % ('/'.join(os.path.realpath(__file__).split('/')[:-1]), '/', FILE_DICT)  # wat
