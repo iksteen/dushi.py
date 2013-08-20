@@ -2,7 +2,7 @@
 __author__ = "dsc"
 __copyright__ = "R&D"
 __credits__ = ["Wazakindjes"]
-__version__ = "19 aug 2013"
+__version__ = "20 aug 2013"
 from random import randrange,choice
 import argparse
 import re
@@ -17,7 +17,7 @@ DUSHI_ENABLED = True
 SMILEY_ENABLED = True
 HAXOR_ENABLED = True
 
-# gehaltes altijd minimaal 2. hoe lager, hoe kutter de zin.
+# gehaltes altijd minimaal 2. hoe lager, hoe kutter de zin :pP
 DUSHI_GEHALTE = 20
 SMILEY_GEHALTE = 3
 HAXOR_GEHALTE = 3
@@ -35,7 +35,7 @@ class Whollah():
                 self.bezem[k] = v.split(',')
 
             f.close()
-
+            
         doe_ding()
 
     def sagbi(self, a): #ewa
