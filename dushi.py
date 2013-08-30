@@ -2,7 +2,7 @@
 __author__ = "dsc"
 __copyright__ = "R&D"
 __credits__ = ["Wazakindjes"]
-__version__ = "20 aug 2013"
+__version__ = "30 aug 2013"
 from random import randrange, choice
 import argparse
 import re
