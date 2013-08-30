@@ -14,9 +14,9 @@ SMILEY_ENABLED = True
 HAXOR_ENABLED = True
 
 # gehaltes altijd minimaal 2. hoe lager, hoe meer dushi.
-DUSHI_GEHALTE = 20
+DUSHI_GEHALTE = 8
 SMILEY_GEHALTE = 3
-HAXOR_GEHALTE = 3
+HAXOR_GEHALTE = 9
 
 FILE_ERROR = 'skeer.err'
 FILE_DICT = 'dushi.db'
