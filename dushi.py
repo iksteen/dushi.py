@@ -1,4 +1,6 @@
 #!/usr/bin/python
+from __future__ import print_function
+
 __author__ = "dsc"
 __copyright__ = "R&D"
 __credits__ = ["Wazakindjes"]
@@ -23,38 +25,33 @@ FILE_DICT = 'dushi.db'
 PATH_ABS = '/'.join(os.path.realpath(__file__).split('/')[:-1]) + '/'
 PATH_DICT = '%s%s' % (PATH_ABS, FILE_DICT)
 
-class Whollah():
-    def __init__(self):
-        global DUSHI_GEHALTE, SMILEY_GEHALTE, HAXOR_GEHALTE
+class Whollah:
+    def __init__(self, db_path, dushi_factor, smiley_factor, haxor_factor):
+        self.dushi_factor = dushi_factor
+        self.smiley_factor = smiley_factor
+        self.haxor_factor = haxor_factor
+
         self.bezem = {}
 
-        def doe_ding():
-            f = open(PATH_DICT)
-
-            for k, v in [z.replace('\n', '').split('=') for z in f.readlines() if z]:
-                self.bezem[k] = v.split(',')
-
-            f.close()
-
-        doe_ding()
+        with open(db_path) as f:
+            for k, v in [z.replace('\n', '').split('=') for z in f if z]:
+                v = v.split(',')
+                for a in k.split(','):
+                    self.bezem.setdefault(a, []).extend(v)
 
     def sagbi(self, a): #ewa
-        for k, v in self.bezem.items():
-            for i in k.split(','):
-                if i == a:
-                    return v # aw ye
-        return None
+        return self.bezem.get(a)
 
     def haxor(self, a):
         r = {'e': '3', 'a': '4', 'o': '0', 'i': '1'}
 
         for k, v in r.items():
-            if k in a and self.bingo(HAXOR_GEHALTE):
+            if k in a and self.bingo(self.haxor_factor):
                 a = a.replace(k, v)
         return a
 
     def dushi(self, a):
-        return ''.join(x.upper() if self.bingo(DUSHI_GEHALTE) else x for x in a)
+        return ''.join(x.upper() if self.bingo(self.dushi_factor) else x for x in a)
 
     def bingo(self, MAX):
         if randrange(0, MAX) == 1:
@@ -62,8 +59,36 @@ class Whollah():
         return False  # :((((((((((
 
     def kutsmileys(self, a):
-        if self.bingo(SMILEY_GEHALTE) and 'kutsmileys' in self.bezem:
+        if self.bingo(self.smiley_factor) and 'kutsmileys' in self.bezem:
             return '%s %s' % (a, choice(self.bezem['kutsmileys']))
+        return a
+
+    def __call__(self, a):
+        dushi = []
+        if self.dushi_factor:
+            for w in a.split():
+                chimeid = self.sagbi(w.lower()) # zoek ding
+
+                if chimeid:  # jwt
+                    new = choice(chimeid)
+
+                    # oki
+                    new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
+
+                    # heuelemaal mooi
+                    dushi.append(new)
+                else:
+                    dushi.append(w)  # :((
+        a = ' '.join(dushi)
+
+        # BIJNA KLAAR
+
+        if self.smiley_factor:
+            a = self.kutsmileys(a)
+
+        if self.haxor_factor:
+            a = self.haxor(a)
+
         return a
 
 
@@ -78,8 +103,7 @@ if __name__ == "__main__":
     args, zemmel = p.parse_known_args()
 
     # args fix
-    if len(zemmel) == 1:
-        zemmel = ''.join(zemmel).split()
+    zemmel = ' '.join(zemmel)
 
     # check flags
     if args.dushi:
@@ -91,40 +115,18 @@ if __name__ == "__main__":
 
     if zemmel:
         # werd up
-        skeere = Whollah()
-
-        dushi = []
-        for w in zemmel:
-            chimeid = skeere.sagbi(w.lower()) # zoek ding
-
-            if chimeid:  # jwt
-                new = choice(chimeid)
-
-                # oki
-                new = new + '.' if w.endswith('.') else new + ',' if w.endswith(',') else new
-
-                # heuelemaal mooi
-                dushi.append(new)
-            else:
-                dushi.append(w)  # :((
-
-        # BIJNA KLAAR
-        deze = ' '.join(dushi)
-
-        if DUSHI_ENABLED:
-            deze = skeere.dushi(deze)
-
-        if SMILEY_ENABLED:
-            deze = skeere.kutsmileys(deze)
-
-        if HAXOR_ENABLED:
-            deze = skeere.haxor(deze)
+        skeere = Whollah(
+            PATH_DICT,
+            DUSHI_GEHALTE if DUSHI_ENABLED else 0,
+            SMILEY_GEHALTE if SMILEY_ENABLED else 0,
+            HAXOR_GEHALTE if HAXOR_ENABLED else 0
+        )
 
         # BAM
-        print deze
+        print(skeere(zemmel))
 
     elif args.halp:
-        print 'https://github.com/nattewasbeer/dushi.py/blob/master/README.md'
+        print('https://github.com/nattewasbeer/dushi.py/blob/master/README.md')
 
     elif args.update:
         import urllib2
@@ -144,7 +146,7 @@ if __name__ == "__main__":
             f.write(response.read())
             f.close()
 
-            print 'up2deet: %s' % i['local']
+            print('up2deet: %s' % i['local'])
     else:
         # gast, input?
         pass
