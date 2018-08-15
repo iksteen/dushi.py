@@ -92,8 +92,8 @@ class Whollah:
         return a
 
 
-if __name__ == "__main__":
-
+def main():
+    global DUSHI_ENABLED, HAXOR_ENABLED, SMILEY_ENABLED
     p = argparse.ArgumentParser()
     p.add_argument('--dushi', help='dUsHi MOdE ON. Default: %s' % DUSHI_ENABLED, action='store_true')
     p.add_argument('--hax', help='h4x0r m0d3 ON. Default: %s' % HAXOR_ENABLED, action='store_true')
@@ -150,3 +150,6 @@ if __name__ == "__main__":
     else:
         # gast, input?
         pass
+
+if __name__ == "__main__":
+    main()
